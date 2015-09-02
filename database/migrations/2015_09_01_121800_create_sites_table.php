@@ -17,8 +17,6 @@ class CreateSitesTable extends Migration
             $table->integer('category_id')->unsigned()->index();
             $table->string('title');
             $table->string('url');
-            $table->string('icon_path');
-            $table->string('color');
             $table->binary('background_image');
             $table->timestamps();
         });

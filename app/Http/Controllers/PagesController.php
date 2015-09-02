@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Site;
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Site;
 
 class PagesController extends Controller
 {
     public function home()
     {
-        $sites = Site::with('category')->get();
+        //$sites = Site::all();
 
-        return view('welcome', compact('sites'));
+        //return view('welcome', compact('sites'));
+
+        return view('welcome');
     }
 }

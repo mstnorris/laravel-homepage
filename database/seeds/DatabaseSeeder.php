@@ -1,5 +1,6 @@
 <?php
 
+use App\Category;
 use App\Site;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
@@ -32,7 +33,7 @@ class DatabaseSeeder extends Seeder
 
         $this->cleanDatabase();
 
-        //$this->call('ConstantsTableSeeder');
+        $this->call('ConstantsTableSeeder');
 
         $geopattern = new \RedeyeVentures\GeoPattern\GeoPattern();
 
@@ -41,18 +42,16 @@ class DatabaseSeeder extends Seeder
         unset($sites);
         $sites = [];
 
-        for ( $i=1; $i<=30; $i++ )
+        for ( $i=1; $i<=2; $i++ )
         {
             $title = $faker->sentence(2);
             $geopattern->setString($title);
             $dataURL = $geopattern->toDataURL();
             $sites[] = [
                 'id' => $i,
-                'category_id' => $faker->randomElement(array_merge([factory(App\Category::class)->create()->id], App\Category::lists('id')->all())),
+                'category_id' => $faker->randomElement(Category::lists('id')->all()),
                 'title' => $title,
                 'url' => $faker->url,
-                'icon_path' => '',
-                'color' => $faker->colorName,
                 'background_image' => $dataURL
             ];
         }

@@ -2,10 +2,6 @@
 
 Route::get('/', ['as' => 'home_path', 'uses' => 'PagesController@home']);
 
-get('sites', function () {
-    return App\Site::all();
-});
+get('sites', ['as' => 'sites_path', 'uses' => 'SitesController@index']);
 
-post('sites', function () {
-    return App\Site::create(Request::all());
-});
+post('sites', ['as' => 'sites_path', 'uses' => 'SitesController@store']);

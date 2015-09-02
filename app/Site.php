@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Site extends Model
 {
     protected $fillable = [
+        'category_id',
         'title',
         'url',
-        'icon',
-        'color'
+        'background_image'
     ];
 
     public function category() {

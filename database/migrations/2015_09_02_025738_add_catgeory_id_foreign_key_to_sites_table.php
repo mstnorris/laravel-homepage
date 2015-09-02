@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCategoryIdForeignKeyToSitesTable extends Migration
+class AddCatgeoryIdForeignKeyToSitesTable extends Migration
 {
     /**
      * Run the migrations.
